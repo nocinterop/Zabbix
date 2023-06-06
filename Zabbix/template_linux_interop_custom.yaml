@@ -1,10 +1,10 @@
 zabbix_export:
   version: '6.0'
-  date: '2023-02-15T12:35:17Z'
+  date: '2023-03-09T18:26:28Z'
   groups:
     -
       uuid: 1961019ccff84f0aabb54eb2f9328323
-      name: 'Template Linux Interop'
+      name: 'Novo Template Linux Interop'
   templates:
     -
       uuid: 9def8e1328ee4d6686f49b4986c20e7b
@@ -16,14 +16,14 @@ zabbix_export:
       items:
         -
           uuid: 43c3b9cd64da47d184aa442e2b0f8b2a
-          name: 'Host alive'
+          name: 'Host Alive'
           type: CALCULATED
           key: hostalive
           params: '(last(//icmpping)) + (last(//net.tcp.service[ssh,{HOST.CONN},{$SSH_PORT}]))'
           tags:
             -
-              tag: Type
-              value: OS
+              tag: 'Type Host'
+              value: 'Server Linux'
           triggers:
             -
               uuid: d884ebfc227a4555b5c340096853691b
@@ -37,7 +37,7 @@ zabbix_export:
           key: icmpping
           tags:
             -
-              tag: Type
+              tag: 'Type Components'
               value: OS
           triggers:
             -
@@ -56,7 +56,7 @@ zabbix_export:
           key: 'net.tcp.service[ssh,{HOST.CONN},{$SSH_PORT}]'
           tags:
             -
-              tag: Type
+              tag: 'Type Components'
               value: OS
           triggers:
             -
@@ -74,7 +74,7 @@ zabbix_export:
           key: 'proc.num[,,zomb,]'
           tags:
             -
-              tag: Type
+              tag: 'Type Components'
               value: OS
           triggers:
             -
@@ -94,16 +94,16 @@ zabbix_export:
           value_type: TEXT
           tags:
             -
-              tag: Type
-              value: 'OS raw itens'
+              tag: 'Type Components'
+              value: OS
         -
           uuid: 59e136ae5ea747238c207b35b82ae069
-          name: 'Load Usage'
+          name: Load
           key: 'system.cpu.load[all,avg5]'
           value_type: FLOAT
           tags:
             -
-              tag: Type
+              tag: 'Type Components'
               value: OS
           triggers:
             -
@@ -135,7 +135,7 @@ zabbix_export:
           units: '%'
           tags:
             -
-              tag: Type
+              tag: 'Type Components'
               value: OS
           triggers:
             -
@@ -161,13 +161,13 @@ zabbix_export:
                   expression: 'min(/Template Linux INTEROP Custom/hostalive,2m)=0'
         -
           uuid: e199c09839c24dbcabae3c77cc9715df
-          name: 'Swap Percent Free'
+          name: 'Swap % Usage'
           key: 'system.swap.size[,pfree]'
           value_type: FLOAT
           units: '%'
           tags:
             -
-              tag: Type
+              tag: 'Type Components'
               value: OS
           triggers:
             -
@@ -198,7 +198,7 @@ zabbix_export:
           units: uptime
           tags:
             -
-              tag: Type
+              tag: 'Type Components'
               value: OS
           triggers:
             -
@@ -244,11 +244,11 @@ zabbix_export:
                   return JSON.stringify(parsed);
           tags:
             -
-              tag: Type
-              value: 'OS raw itens'
+              tag: 'Type Components'
+              value: OS
         -
           uuid: 5981e9e3112046eebc4c94278dc7e63b
-          name: 'Physical Memory Used'
+          name: 'Physical Memory % Usage'
           key: 'vm.memory.size[pavailable]'
           value_type: FLOAT
           units: '%'
@@ -259,7 +259,7 @@ zabbix_export:
                 - 'return (100-value);'
           tags:
             -
-              tag: Type
+              tag: 'Type Components'
               value: OS
           triggers:
             -
@@ -294,8 +294,8 @@ zabbix_export:
             name: zabbix.host.available
           tags:
             -
-              tag: Type
-              value: Application
+              tag: 'Type Components'
+              value: OS
           triggers:
             -
               uuid: 9169d346d39842fca4ada062ff7af2cb
@@ -322,8 +322,8 @@ zabbix_export:
                 name: 'Linux Service State'
               tags:
                 -
-                  tag: Type
-                  value: Services
+                  tag: 'Type Application'
+                  value: 'System Service'
               trigger_prototypes:
                 -
                   uuid: 0ba846a431ff4c76a3839fb05f15fe65
@@ -374,8 +374,8 @@ zabbix_export:
                     - ''
               tags:
                 -
-                  tag: Type
-                  value: Interface
+                  tag: 'Type Components'
+                  value: Network
               trigger_prototypes:
                 -
                   uuid: c34523e4d7274e508038bb1c66240493
@@ -405,8 +405,8 @@ zabbix_export:
                     - '8'
               tags:
                 -
-                  tag: Type
-                  value: Interface
+                  tag: 'Type Components'
+                  value: Network
             -
               uuid: abf28906fa1d44469e0797ed3d622d55
               name: 'Interface {#IFNAME}: Outbound Errors'
@@ -420,8 +420,8 @@ zabbix_export:
                     - ''
               tags:
                 -
-                  tag: Type
-                  value: Interface
+                  tag: 'Type Components'
+                  value: Network
               trigger_prototypes:
                 -
                   uuid: cf75be2711444f3d89b14f502bc54fae
@@ -451,8 +451,8 @@ zabbix_export:
                     - '8'
               tags:
                 -
-                  tag: Type
-                  value: Interface
+                  tag: 'Type Components'
+                  value: Network
             -
               uuid: 1a2aeea304f44f6e956060016140bd34
               name: 'Interface {#IFNAME}: Interface Oper Status'
@@ -496,8 +496,8 @@ zabbix_export:
                       return newvalue;
               tags:
                 -
-                  tag: Type
-                  value: Interface
+                  tag: 'Type Components'
+                  value: Network
               trigger_prototypes:
                 -
                   uuid: 24e94a5f604742dab61eed6e940b82fe
@@ -550,7 +550,7 @@ zabbix_export:
           item_prototypes:
             -
               uuid: 34eefd83cdf74198a785c3b0101996d2
-              name: '{#DEVNAME}: Disk average queue size (avgqu-sz)'
+              name: '{#DEVNAME}: Disk average queue size'
               type: DEPENDENT
               key: 'vfs.dev.queue_size[{#DEVNAME}]'
               delay: '0'
@@ -573,8 +573,8 @@ zabbix_export:
                 key: 'vfs.file.contents[/proc/diskstats]'
               tags:
                 -
-                  tag: Type
-                  value: Disk
+                  tag: 'Type Components'
+                  value: Storage
               trigger_prototypes:
                 -
                   uuid: 3c8ecab8617b4430b20bd295b4a98c01
@@ -585,7 +585,7 @@ zabbix_export:
                   uuid: 100bdd8caedf4537a62ac08877efdd6c
                   expression: 'last(/Template Linux INTEROP Custom/vfs.dev.queue_size[{#DEVNAME}])>=2'
                   name: '{#DEVNAME} Avg Disk Queue Size hit threshold (>=2). Current value: {ITEM.LASTVALUE}'
-                  priority: AVERAGE
+                  priority: HIGH
             -
               uuid: 9373025f36d64f5f9d0793e3398569ed
               name: '{#DEVNAME}: Disk read rate'
@@ -609,8 +609,8 @@ zabbix_export:
                 key: 'vfs.file.contents[/proc/diskstats]'
               tags:
                 -
-                  tag: Type
-                  value: Disk
+                  tag: 'Type Components'
+                  value: Storage
             -
               uuid: dc89a12d8781435ba36c8246de59edbb
               name: '{#DEVNAME}: Disk read time (rate)'
@@ -636,8 +636,8 @@ zabbix_export:
                 key: 'vfs.file.contents[/proc/diskstats]'
               tags:
                 -
-                  tag: Type
-                  value: Disk
+                  tag: 'Type Components'
+                  value: Storage
             -
               uuid: b6ad1b4ef9e44e47a08047905b239701
               name: '{#DEVNAME}: Disk write rate'
@@ -661,8 +661,8 @@ zabbix_export:
                 key: 'vfs.file.contents[/proc/diskstats]'
               tags:
                 -
-                  tag: Type
-                  value: Disk
+                  tag: 'Type Components'
+                  value: Storage
             -
               uuid: e9bc8aaa0c8248db8e9d22c44b252ef4
               name: '{#DEVNAME}: Disk write time (rate)'
@@ -689,8 +689,8 @@ zabbix_export:
                 key: 'vfs.file.contents[/proc/diskstats]'
               tags:
                 -
-                  tag: Type
-                  value: Disk
+                  tag: 'Type Components'
+                  value: Storage
           master_item:
             key: 'vfs.file.contents[/proc/diskstats]'
           preprocessing:
@@ -730,6 +730,27 @@ zabbix_export:
                 formulaid: D
           item_prototypes:
             -
+              uuid: d13ea0410cd148049ea6faaba93664e2
+              name: 'Disco :{#FSNAME} volume state RW / RO'
+              key: 'system.run[dir={#FSNAME}; (test -d $dir) && (ls $dir > /dev/null 2<&1) && (cat /proc/mounts | grep -v rootfs | awk ''{print $2 " " $4}'' | grep "^$dir" -m 1 | grep -o rw > /dev/null 2>&1) && echo 1 || echo 0]'
+              description: |
+                Se Retornar 1 = RW
+                Se Retornar 0 = RO
+                
+                Necessário que no arquivo de configuração do agent estar com a opção de comandos remotos Habilitado
+              valuemap:
+                name: 'volume state RW RO'
+              tags:
+                -
+                  tag: 'Type Components'
+                  value: Disk
+              trigger_prototypes:
+                -
+                  uuid: 33a1dd876b554f49b9e5a3d14a80e14e
+                  expression: 'last(/Template Linux INTEROP Custom/system.run[dir={#FSNAME}; (test -d $dir) && (ls $dir > /dev/null 2<&1) && (cat /proc/mounts | grep -v rootfs | awk ''{print $2 " " $4}'' | grep "^$dir" -m 1 | grep -o rw > /dev/null 2>&1) && echo 1 || echo 0])=0'
+                  name: 'RW/RO status issue on Volume {#FSNAME}'
+                  priority: HIGH
+            -
               uuid: 86faaa288b0f43559fcce3ab1b6b9ccd
               name: '{#FSNAME}: % Used Space'
               key: 'vfs.fs.size[{#FSNAME},pused]'
@@ -737,8 +758,8 @@ zabbix_export:
               units: '%'
               tags:
                 -
-                  tag: Type
-                  value: Disk
+                  tag: 'Type Components'
+                  value: Storage
               trigger_prototypes:
                 -
                   uuid: 46ef2d027c0f4bde9d5505439238b15d
@@ -1083,6 +1104,16 @@ zabbix_export:
             -
               value: '0'
               newvalue: Inactive
+        -
+          uuid: c6388bd74e7444cfa6592bd4a9088bc3
+          name: 'volume state RW RO'
+          mappings:
+            -
+              value: '1'
+              newvalue: 'Write Enabled'
+            -
+              value: '0'
+              newvalue: 'Disabled for Write'
         -
           uuid: 1319d780be1848ca867b27aaa932ea74
           name: zabbix.host.available

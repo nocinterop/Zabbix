@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>6.0</version>
-    <date>2023-02-15T12:35:21Z</date>
+    <date>2023-03-09T18:27:34Z</date>
     <groups>
         <group>
             <uuid>1961019ccff84f0aabb54eb2f9328323</uuid>
@@ -27,8 +27,8 @@
                     <params>(last(//icmpping)) + (last(//net.tcp.service[ssh,{HOST.CONN},{$SSH_PORT}]))</params>
                     <tags>
                         <tag>
-                            <tag>Type</tag>
-                            <value>OS</value>
+                            <tag>Type Host</tag>
+                            <value>Server Linux</value>
                         </tag>
                     </tags>
                     <triggers>
@@ -47,7 +47,7 @@
                     <key>icmpping</key>
                     <tags>
                         <tag>
-                            <tag>Type</tag>
+                            <tag>Type Components</tag>
                             <value>OS</value>
                         </tag>
                     </tags>
@@ -73,7 +73,7 @@
                     <key>net.tcp.service[ssh,{HOST.CONN},{$SSH_PORT}]</key>
                     <tags>
                         <tag>
-                            <tag>Type</tag>
+                            <tag>Type Components</tag>
                             <value>OS</value>
                         </tag>
                     </tags>
@@ -98,7 +98,7 @@
                     <key>proc.num[,,zomb,]</key>
                     <tags>
                         <tag>
-                            <tag>Type</tag>
+                            <tag>Type Components</tag>
                             <value>OS</value>
                         </tag>
                     </tags>
@@ -125,19 +125,19 @@
                     <value_type>TEXT</value_type>
                     <tags>
                         <tag>
-                            <tag>Type</tag>
-                            <value>OS raw itens</value>
+                            <tag>Type Components</tag>
+                            <value>OS</value>
                         </tag>
                     </tags>
                 </item>
                 <item>
                     <uuid>59e136ae5ea747238c207b35b82ae069</uuid>
-                    <name>Load Usage</name>
+                    <name>Load</name>
                     <key>system.cpu.load[all,avg5]</key>
                     <value_type>FLOAT</value_type>
                     <tags>
                         <tag>
-                            <tag>Type</tag>
+                            <tag>Type Components</tag>
                             <value>OS</value>
                         </tag>
                     </tags>
@@ -180,7 +180,7 @@
                     <units>%</units>
                     <tags>
                         <tag>
-                            <tag>Type</tag>
+                            <tag>Type Components</tag>
                             <value>OS</value>
                         </tag>
                     </tags>
@@ -217,13 +217,13 @@
                 </item>
                 <item>
                     <uuid>e199c09839c24dbcabae3c77cc9715df</uuid>
-                    <name>Swap Percent Free</name>
+                    <name>Swap % Usage</name>
                     <key>system.swap.size[,pfree]</key>
                     <value_type>FLOAT</value_type>
                     <units>%</units>
                     <tags>
                         <tag>
-                            <tag>Type</tag>
+                            <tag>Type Components</tag>
                             <value>OS</value>
                         </tag>
                     </tags>
@@ -265,7 +265,7 @@
                     <units>uptime</units>
                     <tags>
                         <tag>
-                            <tag>Type</tag>
+                            <tag>Type Components</tag>
                             <value>OS</value>
                         </tag>
                     </tags>
@@ -324,14 +324,14 @@ return JSON.stringify(parsed);</parameter>
                     </preprocessing>
                     <tags>
                         <tag>
-                            <tag>Type</tag>
-                            <value>OS raw itens</value>
+                            <tag>Type Components</tag>
+                            <value>OS</value>
                         </tag>
                     </tags>
                 </item>
                 <item>
                     <uuid>5981e9e3112046eebc4c94278dc7e63b</uuid>
-                    <name>Physical Memory Used</name>
+                    <name>Physical Memory % Usage</name>
                     <key>vm.memory.size[pavailable]</key>
                     <value_type>FLOAT</value_type>
                     <units>%</units>
@@ -345,7 +345,7 @@ return JSON.stringify(parsed);</parameter>
                     </preprocessing>
                     <tags>
                         <tag>
-                            <tag>Type</tag>
+                            <tag>Type Components</tag>
                             <value>OS</value>
                         </tag>
                     </tags>
@@ -392,8 +392,8 @@ return JSON.stringify(parsed);</parameter>
                     </valuemap>
                     <tags>
                         <tag>
-                            <tag>Type</tag>
-                            <value>Application</value>
+                            <tag>Type Components</tag>
+                            <value>OS</value>
                         </tag>
                     </tags>
                     <triggers>
@@ -429,8 +429,8 @@ return JSON.stringify(parsed);</parameter>
                             </valuemap>
                             <tags>
                                 <tag>
-                                    <tag>Type</tag>
-                                    <value>Services</value>
+                                    <tag>Type Application</tag>
+                                    <value>System Service</value>
                                 </tag>
                             </tags>
                             <trigger_prototypes>
@@ -502,8 +502,8 @@ return JSON.stringify(parsed);</parameter>
                             </preprocessing>
                             <tags>
                                 <tag>
-                                    <tag>Type</tag>
-                                    <value>Interface</value>
+                                    <tag>Type Components</tag>
+                                    <value>Network</value>
                                 </tag>
                             </tags>
                             <trigger_prototypes>
@@ -544,8 +544,8 @@ return JSON.stringify(parsed);</parameter>
                             </preprocessing>
                             <tags>
                                 <tag>
-                                    <tag>Type</tag>
-                                    <value>Interface</value>
+                                    <tag>Type Components</tag>
+                                    <value>Network</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -565,8 +565,8 @@ return JSON.stringify(parsed);</parameter>
                             </preprocessing>
                             <tags>
                                 <tag>
-                                    <tag>Type</tag>
-                                    <value>Interface</value>
+                                    <tag>Type Components</tag>
+                                    <value>Network</value>
                                 </tag>
                             </tags>
                             <trigger_prototypes>
@@ -607,8 +607,8 @@ return JSON.stringify(parsed);</parameter>
                             </preprocessing>
                             <tags>
                                 <tag>
-                                    <tag>Type</tag>
-                                    <value>Interface</value>
+                                    <tag>Type Components</tag>
+                                    <value>Network</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -657,8 +657,8 @@ return newvalue;</parameter>
                             </preprocessing>
                             <tags>
                                 <tag>
-                                    <tag>Type</tag>
-                                    <value>Interface</value>
+                                    <tag>Type Components</tag>
+                                    <value>Network</value>
                                 </tag>
                             </tags>
                             <trigger_prototypes>
@@ -725,7 +725,7 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                     <item_prototypes>
                         <item_prototype>
                             <uuid>34eefd83cdf74198a785c3b0101996d2</uuid>
-                            <name>{#DEVNAME}: Disk average queue size (avgqu-sz)</name>
+                            <name>{#DEVNAME}: Disk average queue size</name>
                             <type>DEPENDENT</type>
                             <key>vfs.dev.queue_size[{#DEVNAME}]</key>
                             <delay>0</delay>
@@ -756,8 +756,8 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             </master_item>
                             <tags>
                                 <tag>
-                                    <tag>Type</tag>
-                                    <value>Disk</value>
+                                    <tag>Type Components</tag>
+                                    <value>Storage</value>
                                 </tag>
                             </tags>
                             <trigger_prototypes>
@@ -771,7 +771,7 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                                     <uuid>100bdd8caedf4537a62ac08877efdd6c</uuid>
                                     <expression>last(/Template Linux INTEROP Custom/vfs.dev.queue_size[{#DEVNAME}])&gt;=2</expression>
                                     <name>{#DEVNAME} Avg Disk Queue Size hit threshold (&gt;=2). Current value: {ITEM.LASTVALUE}</name>
-                                    <priority>AVERAGE</priority>
+                                    <priority>HIGH</priority>
                                 </trigger_prototype>
                             </trigger_prototypes>
                         </item_prototype>
@@ -804,8 +804,8 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             </master_item>
                             <tags>
                                 <tag>
-                                    <tag>Type</tag>
-                                    <value>Disk</value>
+                                    <tag>Type Components</tag>
+                                    <value>Storage</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -842,8 +842,8 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             </master_item>
                             <tags>
                                 <tag>
-                                    <tag>Type</tag>
-                                    <value>Disk</value>
+                                    <tag>Type Components</tag>
+                                    <value>Storage</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -876,8 +876,8 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             </master_item>
                             <tags>
                                 <tag>
-                                    <tag>Type</tag>
-                                    <value>Disk</value>
+                                    <tag>Type Components</tag>
+                                    <value>Storage</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -915,8 +915,8 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             </master_item>
                             <tags>
                                 <tag>
-                                    <tag>Type</tag>
-                                    <value>Disk</value>
+                                    <tag>Type Components</tag>
+                                    <value>Storage</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -973,6 +973,32 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                     </filter>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>d13ea0410cd148049ea6faaba93664e2</uuid>
+                            <name>Disco :{#FSNAME} volume state RW / RO</name>
+                            <key>system.run[dir={#FSNAME}; (test -d $dir) &amp;&amp; (ls $dir &gt; /dev/null 2&lt;&amp;1) &amp;&amp; (cat /proc/mounts | grep -v rootfs | awk '{print $2 &quot; &quot; $4}' | grep &quot;^$dir&quot; -m 1 | grep -o rw &gt; /dev/null 2&gt;&amp;1) &amp;&amp; echo 1 || echo 0]</key>
+                            <description>Se Retornar 1 = RW
+Se Retornar 0 = RO
+
+Necessário que no arquivo de configuração do agent estar com a opção de comandos remotos Habilitado</description>
+                            <valuemap>
+                                <name>volume state RW RO</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Type Components</tag>
+                                    <value>Disk</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>33a1dd876b554f49b9e5a3d14a80e14e</uuid>
+                                    <expression>last(/Template Linux INTEROP Custom/system.run[dir={#FSNAME}; (test -d $dir) &amp;&amp; (ls $dir &gt; /dev/null 2&lt;&amp;1) &amp;&amp; (cat /proc/mounts | grep -v rootfs | awk '{print $2 &quot; &quot; $4}' | grep &quot;^$dir&quot; -m 1 | grep -o rw &gt; /dev/null 2&gt;&amp;1) &amp;&amp; echo 1 || echo 0])=0</expression>
+                                    <name>RW/RO status issue on Volume {#FSNAME}</name>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
                             <uuid>86faaa288b0f43559fcce3ab1b6b9ccd</uuid>
                             <name>{#FSNAME}: % Used Space</name>
                             <key>vfs.fs.size[{#FSNAME},pused]</key>
@@ -980,8 +1006,8 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             <units>%</units>
                             <tags>
                                 <tag>
-                                    <tag>Type</tag>
-                                    <value>Disk</value>
+                                    <tag>Type Components</tag>
+                                    <value>Storage</value>
                                 </tag>
                             </tags>
                             <trigger_prototypes>
@@ -1443,6 +1469,20 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                         <mapping>
                             <value>0</value>
                             <newvalue>Inactive</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>c6388bd74e7444cfa6592bd4a9088bc3</uuid>
+                    <name>volume state RW RO</name>
+                    <mappings>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>Write Enabled</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>Disabled for Write</newvalue>
                         </mapping>
                     </mappings>
                 </valuemap>
